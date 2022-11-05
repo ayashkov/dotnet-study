@@ -6,9 +6,15 @@
 
     <Target Name="Build" DependsOnTargets="NpmBuild" />
 
+    <Target Name="VSTest" DependsOnTargets="NpmTest" />
+
     <Target Name="NpmBuild" DependsOnTargets="NpmInstall"
         Inputs="@(Compile)" Outputs="bin\webroot\index.html">
         <Exec Command="npm run build" />
+    </Target>
+
+    <Target Name="NpmTest" DependsOnTargets="NpmInstall">
+        <Exec Command="npm run test -- --karma-config=karma.ci.conf.js" />
     </Target>
 
     <Target Name="NpmInstall" Inputs="package.json"
