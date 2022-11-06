@@ -10,15 +10,16 @@
     </ItemGroup>
 
     <Target Name="NpmBuild" DependsOnTargets="NpmInstall"
-        Inputs="@(TsCompile)" Outputs="obj\webroot\index.html">
+        Inputs="@(TsCompile)" Outputs="wwwroot\index.html">
         <Exec Command="npm run build" />
     </Target>
 
     <Target Name="NpmResorces" DependsOnTargets="NpmBuild"
-        BeforeTargets="Compile">
+        BeforeTargets="BeforeBuild">
         <ItemGroup>
-            <EmbeddedResource Include="obj\webroot\**" />
+            <EmbeddedResource Include="wwwroot\**" />
         </ItemGroup>
+        <Message Importance="high" Text="Added wwwroot as resources." />
     </Target>
 
     <Target Name="NpmTest" DependsOnTargets="NpmInstall"
@@ -31,7 +32,7 @@
         <Exec Command="npm install" />
     </Target>
 
-    <Target Name="NpmClean" AfterTargets="Clean">
-        <RemoveDir Directories=".angular;node_modules;obj\webroot" />
+    <Target Name="NpmClean" AfterTargets="CoreClean">
+        <RemoveDir Directories=".angular;node_modules;wwwroot" />
     </Target>
 </Project>

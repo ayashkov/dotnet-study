@@ -18,7 +18,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "progress": false,
-            "outputPath": "obj/webroot",
+            "outputPath": "wwwroot",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -104,7 +104,7 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "bin/webroot",
+            "outputPath": "wwwroot",
             "main": "src/main.ts",
             "tsConfig": "tsconfig.server.json"
           },

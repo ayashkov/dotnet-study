@@ -2,12 +2,11 @@
 .idea/
 .vscode/
 bin/
-dist/
-dist-server/
 node_modules/
 obj/
 out-tsc/
 tmp/
+wwwroot/
 *.obj
 *.dll
 *.exe
