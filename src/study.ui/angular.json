@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "study.ui": {
+    "study": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -114,21 +114,18 @@
               "outputHashing": "all",
               "sourceMap": false,
               "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": true
+              "extractLicenses": true
             },
             "production": {
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
               "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false
+              "extractLicenses": true
             }
           }
         }
       }
     }
-  },
-  "defaultProject": "study.ui"
+  }
 }
