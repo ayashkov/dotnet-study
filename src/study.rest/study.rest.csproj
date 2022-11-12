@@ -1,11 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
     <ItemGroup>
-      <ProjectReference Include="..\study.ui\study.ui.csproj" />
+        <ProjectReference Include="..\study.ui\study.ui.csproj" />
+        <ProjectReference Include="..\study.build\study.build.csproj">
+            <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+        </ProjectReference>
     </ItemGroup>
+
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
         <Nullable>enable</Nullable>
         <IsPackable>false</IsPackable>
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
+
+    <UsingTask TaskName="CopyTask"
+        AssemblyFile="$(OutputPath)study.build.dll" />
+
+    <Target Name="Copy">
+        <CopyTask />
+    </Target>
 </Project>
