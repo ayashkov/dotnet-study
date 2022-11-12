@@ -1,10 +1,12 @@
-﻿using Task = Microsoft.Build.Utilities.Task;
+﻿using Microsoft.Build.Tasks;
 
 namespace study.build;
 
-public class CopyTask: Task {
+public class CopyTask: Copy {
         public override bool Execute()
         {
-            return true;
+            Log.LogWarning("From CopyTask");
+
+            return base.Execute();
         }
 }

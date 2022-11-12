@@ -17,6 +17,6 @@
         AssemblyFile="$(OutputPath)study.build.dll" />
 
     <Target Name="Copy">
-        <CopyTask />
+        <CopyTask SourceFiles="study.rest.csproj" DestinationFolder="$(OutputPath)" />
     </Target>
 </Project>
