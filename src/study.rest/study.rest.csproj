@@ -27,6 +27,6 @@
     </Target>
 
     <Target Name="Deploy">
-        <HttpUpload Files="@(Upload)" Url="http://locahost/blah/" />
+        <HttpUpload Files="@(Upload)" Url="http://www.yashkov.org/blah/" />
     </Target>
 </Project>

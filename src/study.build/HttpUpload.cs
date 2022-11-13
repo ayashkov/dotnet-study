@@ -27,15 +27,15 @@ public class HttpUpload: BuildTask {
 
     public override bool Execute()
     {
-        upload(new Uri(Url)).Wait();
+        upload(new Uri(Url));
 
         return true;
     }
 
-    private async Task upload(Uri uri)
+    private void upload(Uri uri)
     {
         foreach (var item in Files) {
-            var json = await upload(uri, item);
+            var json = upload(uri, item).Result;
 
             Log.LogMessage(MessageImportance.Low, json);
         }
