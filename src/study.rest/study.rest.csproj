@@ -11,11 +11,22 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+    <ItemGroup>
+        <Upload Include="$(OutputPath)**/*.dll" />
+    </ItemGroup>
+
     <UsingTask TaskName="FilteredCopy"
+        AssemblyFile="$(OutputPath)study.build.dll" />
+
+    <UsingTask TaskName="HttpUpload"
         AssemblyFile="$(OutputPath)study.build.dll" />
 
     <Target Name="Copy">
         <FilteredCopy SourceFiles="study.rest.csproj"
             DestinationFolder="$(OutputPath)" />
+    </Target>
+
+    <Target Name="Deploy">
+        <HttpUpload Files="@(Upload)" Url="http://locahost/blah/" />
     </Target>
 </Project>
