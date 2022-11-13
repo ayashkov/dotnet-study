@@ -1,9 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
     <ItemGroup>
         <ProjectReference Include="..\study.ui\study.ui.csproj" />
-        <ProjectReference Include="..\study.build\study.build.csproj">
-            <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
-        </ProjectReference>
+        <ProjectReference Include="..\study.build\study.build.csproj" />
     </ItemGroup>
 
     <PropertyGroup>
@@ -13,10 +11,11 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
-    <UsingTask TaskName="CopyTask"
+    <UsingTask TaskName="FilteredCopy"
         AssemblyFile="$(OutputPath)study.build.dll" />
 
     <Target Name="Copy">
-        <CopyTask SourceFiles="study.rest.csproj" DestinationFolder="$(OutputPath)" />
+        <FilteredCopy SourceFiles="study.rest.csproj"
+            DestinationFolder="$(OutputPath)" />
     </Target>
 </Project>
