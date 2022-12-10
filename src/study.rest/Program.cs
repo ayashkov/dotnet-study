@@ -4,6 +4,7 @@ using System.Reflection;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
+builder.Configuration.AddJsonFile("etc/appsettings.conf", optional: true);
 
 var app = builder.Build();
 var options = new StaticFileOptions {
