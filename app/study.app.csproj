@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
     <ItemGroup>
-        <ProjectReference Include="..\study.ui\study.ui.csproj" />
-        <ProjectReference Include="..\study.build\study.build.csproj" />
+        <ProjectReference Include="..\ui\study.ui.csproj" />
+        <ProjectReference Include="..\build\study.build.csproj" />
     </ItemGroup>
 
     <PropertyGroup>

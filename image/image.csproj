@@ -18,7 +18,7 @@
     <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
 
     <ItemGroup>
-        <ProjectReference Include="..\src\study.rest\study.rest.csproj" />
+        <ProjectReference Include="..\app\study.app.csproj" />
     </ItemGroup>
 
     <Target Name="CoreCompile" />

@@ -16,10 +16,10 @@ public class HttpUpload: BuildTask {
     }
 
     [Required]
-    public ITaskItem[] Files { get; set; }
+    public ITaskItem[]? Files { get; set; }
 
     [Required]
-    public string Url { get; set; }
+    public string? Url { get; set; }
 
     public string? Username { get; set; }
 
@@ -27,14 +27,14 @@ public class HttpUpload: BuildTask {
 
     public override bool Execute()
     {
-        upload(new Uri(Url));
+        upload(new Uri(Url!));
 
         return true;
     }
 
     private void upload(Uri uri)
     {
-        foreach (var item in Files) {
+        foreach (var item in Files!) {
             var json = upload(uri, item).Result;
 
             Log.LogMessage(MessageImportance.Low, json);
