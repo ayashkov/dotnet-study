@@ -1,19 +1,24 @@
 namespace study.host;
 
 public class Worker: BackgroundService {
+    private readonly IHostApplicationLifetime lifetime;
+
     private readonly ILogger<Worker> logger;
 
-    public Worker(ILogger<Worker> logger)
+    public Worker(IHostApplicationLifetime lifetime, ILogger<Worker> logger)
     {
+        this.lifetime = lifetime;
         this.logger = logger;
     }
 
     protected override async Task ExecuteAsync(CancellationToken token)
     {
-        while (!token.IsCancellationRequested) {
-            logger.LogInformation("Worker running at: {time}",
-                DateTimeOffset.Now);
-            await Task.Delay(1000, token);
-        }
-    }
+        logger.LogInformation("Started");
+
+        await Task.Delay(10000, token);
+
+        logger.LogInformation("Done");
+
+        lifetime.StopApplication();
+   }
 }
